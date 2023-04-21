@@ -15,6 +15,7 @@ namespace ArkanoidApp.Game{
                 this.writeOnFile(this.loadFromResources());
             }
         }
+
         public List<Tuple<string, int>> getBestFive()
         {
             throw new NotImplementedException();
@@ -31,7 +32,7 @@ namespace ArkanoidApp.Game{
         }
 
         private User? checkUser(string name, string password, List<User> list){
-            
+
         }
 
         private void writeOnFile(List<User> list){
@@ -48,7 +49,30 @@ namespace ArkanoidApp.Game{
 
         [Serializable]
         public class User{
+            public string _name {get;}
+            public string _password {get;}
+            public Dictionary<string,int> _points;
 
+            public User(string name, string password){
+                _name=name;
+                _password=password;
+                _points=new Dictionary<string,int>();
+            }
+
+            public int getPoints()
+            {
+                return _points.Sum(x=>x.Value);
+            }
+
+            public void update(int points, int levelId)
+            {
+                _points[levelId.ToString()]=points;
+            }
+
+            public override string ToString()
+            {
+                return _name+" "+getPoints();
+            }
         }
     }
 }
