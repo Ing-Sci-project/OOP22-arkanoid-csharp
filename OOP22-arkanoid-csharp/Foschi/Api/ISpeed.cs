@@ -1,11 +1,11 @@
-namespace OOP22-arkanoid-csharp.Foschi.Api{
+namespace  Foschi.Api{
 
-    internal interface ISpeed
+    public interface ISpeed
     {
         double X {get;}
 
         double Y {get;}
-        
+
         void sum(ISpeed vel);
     }
 }
