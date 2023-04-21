@@ -3,8 +3,8 @@ namespace ArkanoidApp.Api{
 
         void UpdatePoints(string name, string password, int points, int levelId);
 
-        List<Tuple<string,int>> getBestFive();
+        List<Tuple<string,int>> GetBestFive();
 
-        int? getPoints(string name, string password);
+        int? GetPoints(string name, string password);
     }
 }
