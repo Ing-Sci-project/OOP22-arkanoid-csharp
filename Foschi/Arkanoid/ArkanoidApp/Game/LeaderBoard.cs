@@ -1,4 +1,5 @@
 using ArkanoidApp.Api;
+using Newtonsoft.Json;
 
 namespace ArkanoidApp.Game{
     public class LeaderBoard : ILeaderBoard
@@ -34,7 +35,7 @@ namespace ArkanoidApp.Game{
         public void UpdatePoints(string name, string password, int points, int levelId)
         {
             List<User> list = PlayersFromFile();
-            User? check = CheckUser(name,password);
+            User? check = CheckUser(name,password,list);
             if(check!=null){
                 check.update(points,levelId);
             } else {
@@ -51,15 +52,15 @@ namespace ArkanoidApp.Game{
         }
 
         private void WriteOnFile(List<User> list){
-
+            File.WriteAllText(_path,JsonConvert.SerializeObject(list));
         }
 
         private List<User> LoadFromResources(){
-
+            return JsonConvert.DeserializeObject<List<User>>(File.ReadAllText("Resources/File.txt"));
         }
 
         private List<User> PlayersFromFile(){
-
+            return JsonConvert.DeserializeObject<List<User>>(File.ReadAllText(_path));
         }
 
         [Serializable]
