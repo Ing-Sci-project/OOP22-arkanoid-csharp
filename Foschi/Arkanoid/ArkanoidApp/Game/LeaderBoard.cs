@@ -12,38 +12,53 @@ namespace ArkanoidApp.Game{
             if(!File.Exists(_path) || info.Length==0) {
                 FileStream str = File.Create(_path);
                 str.Close();
-                this.writeOnFile(this.loadFromResources());
+                this.WriteOnFile(this.LoadFromResources());
             }
         }
 
-        public List<Tuple<string, int>> getBestFive()
+        public List<Tuple<string, int>> GetBestFive()
         {
-            throw new NotImplementedException();
+            List<User> list = PlayersFromFile();
+            if(list.Count() > MAX) {
+                list = list.GetRange(0,MAX);
+            }
+            return list.Select(x=> new Tuple<string,int>(x._name,x.getPoints())).ToList();
         }
 
-        public int? getPoints(string name, string password)
+        public int? GetPoints(string name, string password)
         {
-            throw new NotImplementedException();
+            User? usr = PlayersFromFile().Find(x=>x._name.Equals(name) && x._password.Equals(password));
+            return usr==null ? null : usr.getPoints();
         }
 
         public void UpdatePoints(string name, string password, int points, int levelId)
         {
-            throw new NotImplementedException();
+            List<User> list = PlayersFromFile();
+            User? check = CheckUser(name,password);
+            if(check!=null){
+                check.update(points,levelId);
+            } else {
+                User usr = new User(name, password);
+                usr.update(points,levelId);
+                list.Add(usr);
+            }
+            list.Sort((x,y)=>y.getPoints().CompareTo(x.getPoints()));
+            WriteOnFile(list);
         }
 
-        private User? checkUser(string name, string password, List<User> list){
+        private User? CheckUser(string name, string password, List<User> list){
+            return list.Find(x=>x._name.Equals(name) && x._password.Equals(password));
+        }
+
+        private void WriteOnFile(List<User> list){
 
         }
 
-        private void writeOnFile(List<User> list){
+        private List<User> LoadFromResources(){
 
         }
 
-        private List<User> loadFromResources(){
-
-        }
-
-        private List<User> playersFromFile(){
+        private List<User> PlayersFromFile(){
 
         }
 
