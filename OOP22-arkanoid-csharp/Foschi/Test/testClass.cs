@@ -25,6 +25,15 @@ namespace Foschi.Test{
         }
 
         [Fact]
+        public void testDimension(){
+            Dimension dim = new Dimension(X,Y);
+            Assert.Equal(dim.Height,X);
+            Assert.Equal(dim.Width,Y);
+            dim.IncreaseWidth(INC_Y);
+            Assert.Equal(dim.Width,Y+INC_Y);
+        }
+
+        [Fact]
         public void testLeaderBoard(){
             ILeaderBoard l = new LeaderBoard();
             string name=RandomString();
