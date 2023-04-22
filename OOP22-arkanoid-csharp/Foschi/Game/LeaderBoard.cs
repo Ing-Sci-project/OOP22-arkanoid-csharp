@@ -28,7 +28,7 @@ namespace Foschi.Game
 
         public int? GetPoints(string name, string password)
         {
-            User? usr = CheckUser(name,password,PlayersFromFile());
+            User? usr = PlayersFromFile().Find(x=>x._name.Equals(name) && x._password.Equals(password));
             return usr == null ? null : usr.GetSumPoints();
         }
 
@@ -66,11 +66,11 @@ namespace Foschi.Game
         }
 
         [Serializable]
-        class User {
-            public string _name {get;}
-            public string _password {get;}
+        public class User {
+            public string _name {get; set;}
+            public string _password {get; set;}
 
-            public IDictionary<string,int> _points;
+            public Dictionary<string,int> _points;
 
             public User(string name, string password)
             {
