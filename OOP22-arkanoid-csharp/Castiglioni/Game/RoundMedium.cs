@@ -33,6 +33,7 @@ namespace Castiglioni.Game
             _startX = sizeC.GetStart().Item1;
             _stopY = sizeC.GetStop().Item2;
             _stopX = sizeC.GetStop().Item1;
+            SetPosBrick();
         }
         /// <summary>
         /// method that to randomly places hard bricks.
