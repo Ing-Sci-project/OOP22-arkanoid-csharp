@@ -50,7 +50,7 @@ namespace Castiglioni.Game
             set =>  _box = value;
         }*/
         /// <inheritdoc />
-        Dimension Dimension
+        public Dimension Dimension
         {
             set => _d = new Dimension(value.Height, value.Width);
             get => _d;
