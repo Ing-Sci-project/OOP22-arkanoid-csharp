@@ -1,4 +1,7 @@
 using Castiglioni.Api;
+using Foschi.Game;
+using Shapes;
+
 namespace Castiglioni.Game
 {
     /// <summary>
@@ -7,7 +10,7 @@ namespace Castiglioni.Game
     public abstract class AbstractBrick : IBrick
     {
         private BrickType _type;
-        private BoundingBox _box;
+        //private BoundingBox _box;
         private Dimension _d;
         private Tuple<double, double> _pos;
         /// <summary>
@@ -20,8 +23,8 @@ namespace Castiglioni.Game
         {
             _type = type;
             _pos = new Tuple<double, double>(pos.Item1, pos.Item2);
-            _d = new DimensionImpl(d.GetHeight(), d.GetWidth());
-            SetBoundingBox(new RectBoundingBox(this));
+            _d = new Dimension(d.Height, d.Width);
+            //SetBoundingBox(new RectBoundingBox(this));
 
         }
         /// <inheritdoc />
@@ -29,27 +32,30 @@ namespace Castiglioni.Game
         /// <inheritdoc />
         public void ChangeType(BrickType type) => _type = type;
         /// <inheritdoc />
-        public double BrickH => _d.GetHeight();
+        public double BrickH => _d.Height;
         /// <inheritdoc />
-        public double BrickW => _d.GetWidth();
+        public double BrickW => _d.Width;
         /// <inheritdoc />
         public Tuple<double, double> Pos
         {
             set => _pos = value;
             get => _pos;
         }
+
         /// <inheritdoc />
-        public BoundingBox BoundingBox
+        /*
+        public IBoundingBox BoundingBox
         {
-            set => _box = value;
             get => _box;
-        }
+            set =>  _box = value;
+        }*/
         /// <inheritdoc />
-        public Dimension Dimension
+        Dimension Dimension
         {
-            set => _d = new DimensionImpl(value.GetHeight(), value.GetWidth());
+            set => _d = new Dimension(value.Height, value.Width);
             get => _d;
         }
+
         /// <inheritdoc />
         public abstract bool IsDestroyed();
         /// <inheritdoc />
@@ -58,7 +64,7 @@ namespace Castiglioni.Game
         public abstract int? GetRes();
         /// <inheritdoc />
         public abstract void IncreaseRes(int res);
-
+        /// <inheritdoc />
         public abstract void DecreaseRes(int res);
     }
 }

@@ -1,8 +1,10 @@
+using Shapes;
+
 namespace Castiglioni.Api
 {   /// <summary>
     /// Brick entity interface.
     /// </summary>
-    public interface IBrick : GameObject
+    public interface IBrick : IGameObject
     {
         /// <summary>
         /// Type of brick.

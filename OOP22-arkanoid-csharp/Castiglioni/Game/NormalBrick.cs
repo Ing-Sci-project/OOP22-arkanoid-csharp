@@ -1,4 +1,6 @@
 using Castiglioni.Api;
+using Foschi.Game;
+
 namespace Castiglioni.Game
 {
     /// <summary>

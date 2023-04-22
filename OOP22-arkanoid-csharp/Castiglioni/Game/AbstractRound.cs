@@ -1,4 +1,5 @@
 using Foschi.Game;
+using Shapes;
 using Castiglioni.Api;
 
 namespace Castiglioni.Game
@@ -11,11 +12,11 @@ namespace Castiglioni.Game
         private int _numBrick;
         private int _numSurprise;
         private List<IBrick> _brick = new List<IBrick>();
-        private List<MovingObject> _balls = new List<MovingObject>();
-        private List<MovingObject> _extraBalls = new List<MovingObject>();
-        private MovingObject _pad;
+        private List<IMovingObject> _balls = new List<IMovingObject>();
+        private List<IMovingObject> _extraBalls = new List<IMovingObject>();
+        private IMovingObject _pad;
         private SizeCalculation _sizeC;
-        private List<MovingObject> _surprise = new List<MovingObject>();
+        private List<IMovingObject> _surprise = new List<IMovingObject>();
         private Random _random = new Random();
         /// <summary>
         /// constructor of the class.
@@ -41,13 +42,13 @@ namespace Castiglioni.Game
         public void Restart()
         {
             _balls.Clear();
-            MovingObject ball = new Ball(SizeCalculation.GetBallDim());
-            ball.GetPhysics().GetDir().ResetDirection();
+            IMovingObject ball = new Ball(SizeCalculation.GetBallDim());
+            ball.Physics.GetDir().ResetDirection();
             _balls.Add(ball);
             _surprise.Clear();
         }
         /// <inheritdoc />
-        public List<MovingObject> GetSurprise() => _surprise;
+        public List<IMovingObject> GetSurprise() => _surprise;
         /// <summary>
         /// method to add a brick in the list.
         /// </summary>
@@ -57,7 +58,7 @@ namespace Castiglioni.Game
         /// method that add a surprise a new ball to the list.
         /// </summary>
         /// <param name="ball">the ball to add</param>
-        private void AddSurprise(MovingObject ball) => _surprise.Add(ball);
+        private void AddSurprise(IMovingObject ball) => _surprise.Add(ball);
         /// <summary>
         /// method that to randomly places surprise bricks.
         /// </summary>
@@ -77,23 +78,23 @@ namespace Castiglioni.Game
             }
         }
         /// <inheritdoc />
-        public void SetPosBall(Tuple<double, double> pos, int index) => _balls[index].SetPos(pos);
+        public void SetPosBall(Tuple<double, double> pos, int index) => _balls[index].Pos = pos;
         /// <inheritdoc />
-        public void SetPosPad(Tuple<double, double> pos) => _pad.SetPos(pos);
+        public void SetPosPad(Tuple<double, double> pos) => _pad.Pos = pos;
         /// <inheritdoc />
         public List<Tuple<double, double>> GetPosBall()
         {
             List<Tuple<double, double>> output = new List<Tuple<double, double>>();
             foreach (var b in _balls)
             {
-                output.Add(b.GetPos());
+                output.Add(b.Pos);
             }
             return output;
         }
         /// <inheritdoc />
-        public MovingObject Pad { get => _pad; }
+        public IMovingObject Pad { get => _pad; }
         /// <inheritdoc />
-        public List<MovingObject> GetBalls() => _balls;
+        public List<IMovingObject> GetBalls() => _balls;
         /// <inheritdoc />
         public void Remove(int index)
         {
@@ -113,18 +114,18 @@ namespace Castiglioni.Game
         /// </summary>
         /// <param name="brick">the size of the brick is used to set the initial position of the ball</param>
         /// <returns>the ball to add to the list of bonus balls</returns>
-        private MovingObject AddSurprise(IBrick brick)
+        private IMovingObject AddSurprise(IBrick brick)
         {
-            MovingObject b = new Ball(SizeCalculation.GetBallDim());
-            b.SetPos(new Tuple<double, double>(brick.Pos.item1 + brick.BrickW / 2,
-                brick.Pos.item2 + brick.BrickH));
-            b.SetSpeed(new Speed(0, 1));
+            IMovingObject b = new Ball(SizeCalculation.GetBallDim());
+            b.Pos = new Tuple<double, double>(brick.Pos.Item1 + brick.BrickW / 2,
+                brick.Pos.Item2 + brick.BrickH);
+            b.Speed = new Speed(0, 1);
             return b;
         }
         /// <inheritdoc />
         public List<IBrick> GetBrick() => _brick;
         /// <inheritdoc />
-        public List<MovingObject> GetExtraBalls() => _extraBalls;
+        public List<IMovingObject> GetExtraBalls() => _extraBalls;
         /// <inheritdoc />
         public abstract void SetPosBrick();
     }
