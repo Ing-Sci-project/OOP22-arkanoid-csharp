@@ -27,13 +27,9 @@ namespace Shapes
         /// <summary>
         /// Assigns the physics of the object.
         /// </summary>
-      
         IPhysics Physics { get; set;}
-
-    
         /// <summary>
-        /// Gets and set the speed of the object.
-        /// 
+        /// Gets and set the speed of the obje
         /// </summary>
        ISpeed Speed { get; set;}
     }
