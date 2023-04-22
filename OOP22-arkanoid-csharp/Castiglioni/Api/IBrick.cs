@@ -28,7 +28,7 @@ namespace Castiglioni.Api
         /// Resistence of brick.
         /// </summary>
         /// <returns>the resistence of the brick</returns>
-        int? Res { get; }
+        int? GetRes();
         /// <summary>
         /// if a brick is destructible.
         /// </summary>
@@ -47,6 +47,6 @@ namespace Castiglioni.Api
         /// method to decrease resistence of brick.
         /// </summary>
         /// <param name="res">the input received</param>
-        void decreaseRes(int res);
+        void DecreaseRes(int res);
     }
 }
