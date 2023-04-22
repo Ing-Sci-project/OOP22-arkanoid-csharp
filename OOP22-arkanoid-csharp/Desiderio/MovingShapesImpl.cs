@@ -76,9 +76,9 @@ namespace MovingShapesImpl
             d
         )
         {
-            Speed = new Speed(4, 3);
-            Physics = new BallPhysicsImpl();
-            BoundingBox = new CircleBoundingBox(this);
+            base.Speed = new Speed(4, 3);
+            base.Physics = new BallPhysicsImpl();
+            base.BoundingBox = new CircleBoundingBox(this);
         }
 
     }
