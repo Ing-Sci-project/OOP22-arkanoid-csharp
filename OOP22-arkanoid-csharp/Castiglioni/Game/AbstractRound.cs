@@ -41,9 +41,9 @@ namespace Castiglioni.Game
         public void Restart()
         {
             _balls.Clear();
-            MovingObject _ball = new Ball(SizeCalculation.GetBallDim());
-            _ball.GetPhysics().GetDir().ResetDirection();
-            _balls.Add(_ball);
+            MovingObject ball = new Ball(SizeCalculation.GetBallDim());
+            ball.GetPhysics().GetDir().ResetDirection();
+            _balls.Add(ball);
             _surprise.Clear();
         }
         /// <inheritdoc />
