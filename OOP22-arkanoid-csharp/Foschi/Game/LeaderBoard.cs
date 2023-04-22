@@ -18,12 +18,17 @@ namespace Foschi.Game
         }
         public List<Tuple<string, int>> GetBestFive()
         {
-            throw new NotImplementedException();
+            List<User> list = PlayersFromFile();
+            if(list.Count() > MAX) {
+                list = list.GetRange(0,MAX);
+            }
+            return list.Select(x=>new Tuple<string,int>(x._name,x.GetSumPoints())).ToList();
         }
 
         public int? GetPoints(string name, string password)
         {
-            throw new NotImplementedException();
+            User? usr = PlayersFromFile().Find(x=>x._name.Equals(name) && x._password.Equals(password));
+            return usr == null ? null : usr.GetSumPoints();
         }
 
         public void UpdatePoints(string name, string password, int points, int levelId)
