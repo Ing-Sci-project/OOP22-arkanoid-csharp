@@ -2,6 +2,7 @@ using Shapes;
 using Foschi.Game;
 namespace MovingShapesImpl
 {
+    ///part common to any moving obj. 
     public abstract class AbstractMovingObject : IMovingObject
     {
         private Tuple<double, double> _pos;
