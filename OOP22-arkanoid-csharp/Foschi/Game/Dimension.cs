@@ -23,10 +23,7 @@ namespace Foschi.Game {
             set {_width=value;}
         }
 
-        public void IncreaseWidth(double value)
-        {
-            _width=_width+value;
-        }
+        public void IncreaseWidth(double value) => _width += value;
 
     }
 }
