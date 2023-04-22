@@ -37,6 +37,7 @@ namespace Foschi.Test{
         [Fact]
         public void testObstacle(){
             IBrick b = new Obstacle(BrickType.OBSTACLE, new Dimension(X,Y), new Tuple<double, double>(X,Y));
+            Assert.False(b.GetRes().HasValue);
             for (int i=0; i<100000; i++) {
                 b.Hit();
             }
