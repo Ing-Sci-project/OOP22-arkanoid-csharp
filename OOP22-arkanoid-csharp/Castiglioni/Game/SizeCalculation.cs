@@ -1,3 +1,5 @@
+using Foschi.Game;
+
 namespace Castiglioni.Game
 {   /// <summary>
     /// Class that calculates the size of the entity based on the size of the model.
@@ -85,12 +87,12 @@ namespace Castiglioni.Game
         /// </summary>
         /// <returns>pad dimension</returns>
         ///Provare quando ci sarà con Dimension
-        public static Tuple<double, double> GetPadDim() => new Tuple<double, double>(World_Height / Diveder_Pad_X, World_Width / 4);
+        public static Dimension GetPadDim() => new Dimension(World_Height / Diveder_Pad_X, World_Width / 4);
         /// <summary>
         /// the ball dimension.
         /// </summary>
         /// <returns>ball dimension</returns>
         ///Provare quando ci sarà con Dimension
-        public static Tuple<double, double> GetBallDim() => new Tuple<double, double>(World_Width / Diveder_Ball, World_Width / Diveder_Ball);
+        public static Dimension GetBallDim() => new Dimension(World_Width / Diveder_Ball, World_Width / Diveder_Ball);
     }
 }

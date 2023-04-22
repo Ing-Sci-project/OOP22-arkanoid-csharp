@@ -1,6 +1,7 @@
 using Foschi.Game;
 using Shapes;
 using Castiglioni.Api;
+using MovingShapesImpl;
 
 namespace Castiglioni.Game
 {
