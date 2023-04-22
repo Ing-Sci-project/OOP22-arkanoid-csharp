@@ -1,4 +1,5 @@
 using Castiglioni.Game;
+using Shapes;
 
 namespace Castiglioni.Api
 {
@@ -46,7 +47,7 @@ namespace Castiglioni.Api
         /// method to get all bonus ball in the game.
         /// </summary>
         /// <returns>list of surprise balls</returns>
-        List<MovingObject> GetSurprise();
+        List<IMovingObject> GetSurprise();
         /// <summary>
         /// method to get positions of all balls in the game.
         /// </summary>
@@ -56,12 +57,12 @@ namespace Castiglioni.Api
         /// return pad object.
         /// </summary>
         /// <returns>pad</returns>
-        MovingObject Pad { get; }
+        IMovingObject Pad { get; }
         /// <summary>
         /// return balls objects.
         /// </summary>
         /// <returns>balls</returns>
-        List<MovingObject> GetBalls();
+        List<IMovingObject> GetBalls();
         /// <summary>
         /// method to remove a brick when is hitten.
         /// </summary>
@@ -71,7 +72,7 @@ namespace Castiglioni.Api
         /// return extra-balls objects.
         /// </summary>
         /// <returns>list of extra balls</returns>
-        List<MovingObject> GetExtraBalls();
+        List<IMovingObject> GetExtraBalls();
         /// <summary>
         /// method to set brick in right position.
         /// </summary>

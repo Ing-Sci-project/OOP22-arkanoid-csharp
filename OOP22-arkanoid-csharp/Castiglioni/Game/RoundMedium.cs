@@ -1,4 +1,6 @@
 using Castiglioni.Api;
+using Foschi.Game;
+
 namespace Castiglioni.Game
 {   /// <summary>
     /// class that contains informations about different rounds in second level.
@@ -61,9 +63,9 @@ namespace Castiglioni.Game
                     if (_countBrick != _jump)
                     {
                         NormalBrick b = new NormalBrick(BrickType.NORMAL,
-                            new DimensionImpl(SizeCalc.GetBrickDim().Item1,
+                            new Dimension(SizeCalc.GetBrickDim().Item1,
                             SizeCalc.GetBrickDim().Item2), new Tuple<double, double>(j, i), 1);
-                        b.SetPos(new Tuple<Double, Double>(j, i));
+                        b.Pos = new Tuple<Double, Double>(j, i);
                         base.AddBrick(b);
                         _countBrick++;
                     }
