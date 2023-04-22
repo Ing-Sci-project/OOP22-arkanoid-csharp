@@ -1,3 +1,5 @@
+using Castiglioni.Game;
+
 namespace Castiglioni.Api
 {
     /// <summary>

@@ -1,7 +1,7 @@
 using Foschi.Game;
 using Castiglioni.Api;
 
-namespace Castiglioni
+namespace Castiglioni.Game
 {
     /// <summary>
     /// class that implements the methods common to different rounds.
@@ -29,7 +29,7 @@ namespace Castiglioni
             _numSurprise = numS;
             _sizeC = size;
             _pad = new Pad(SizeCalculation.GetPadDim());
-            _balls.add(new Ball(SizeCalculation.GetBallDim()));
+            _balls.Add(new Ball(SizeCalculation.GetBallDim()));
         }
         /// <inheritdoc />
         public SizeCalculation SizeCalc => _sizeC;
