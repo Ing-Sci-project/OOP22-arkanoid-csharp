@@ -1,6 +1,3 @@
-using System.Collections.Generic;
-using System;
-using Foschi.Api;
 using Foschi.Game;
 using Castiglioni.Api;
 
@@ -13,12 +10,12 @@ namespace Castiglioni
     {
         private int _numBrick;
         private int _numSurprise;
-        private List<Brick> _brick = new List<>();
-        private List<MovingObject> _balls = new List<>();
-        private List<MovingObject> _extraBalls = new List<>();
+        private List<IBrick> _brick = new List<IBrick>();
+        private List<MovingObject> _balls = new List<MovingObject>();
+        private List<MovingObject> _extraBalls = new List<MovingObject>();
         private MovingObject _pad;
         private SizeCalculation _sizeC;
-        private List<MovingObject> _surprise = new List<>();
+        private List<MovingObject> _surprise = new List<MovingObject>();
         private Random _random = new Random();
         /// <summary>
         /// constructor of the class.
@@ -55,7 +52,7 @@ namespace Castiglioni
         /// method to add a brick in the list.
         /// </summary>
         /// <param name="brick">that we want to add</param>
-        protected void AddBrick(Brick brick) => _brick.Add(brick);
+        protected void AddBrick(IBrick brick) => _brick.Add(brick);
         /// <summary>
         /// method that add a surprise a new ball to the list.
         /// </summary>
@@ -86,7 +83,7 @@ namespace Castiglioni
         /// <inheritdoc />
         public List<Tuple<double, double>> GetPosBall()
         {
-            List<Tuple<double, double>> output = new List<>();
+            List<Tuple<double, double>> output = new List<Tuple<double, double>>();
             foreach (var b in _balls)
             {
                 output.Add(b.GetPos());
@@ -100,15 +97,15 @@ namespace Castiglioni
         /// <inheritdoc />
         public void Remove(int index)
         {
-            Brick brick = _brick[index];
-            if (_brick.Type.Equals(BrickType.SURPRISE))
+            IBrick brick = _brick[index];
+            if (brick.Type.Equals(BrickType.SURPRISE))
             {
                 AddSurprise(AddSurprise(brick));
             }
             brick.Hit();
             if (brick.IsDestroyed())
             {
-                _brick.Remove(index);
+                _brick.RemoveAt(index);
             }
         }
         /// <summary>
@@ -116,7 +113,7 @@ namespace Castiglioni
         /// </summary>
         /// <param name="brick">the size of the brick is used to set the initial position of the ball</param>
         /// <returns>the ball to add to the list of bonus balls</returns>
-        private MovingObject AddSurprise(Brick brick)
+        private MovingObject AddSurprise(IBrick brick)
         {
             MovingObject b = new Ball(SizeCalculation.GetBallDim());
             b.SetPos(new Tuple<double, double>(brick.Pos.item1 + brick.BrickW / 2,
@@ -125,7 +122,7 @@ namespace Castiglioni
             return b;
         }
         /// <inheritdoc />
-        public List<Brick> GetBrick() => _brick;
+        public List<IBrick> GetBrick() => _brick;
         /// <inheritdoc />
         public List<MovingObject> GetExtraBalls() => _extraBalls;
         /// <inheritdoc />

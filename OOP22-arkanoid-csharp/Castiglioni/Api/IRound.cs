@@ -28,7 +28,7 @@ namespace Castiglioni.Api
         /// method to get all the bricks in the game.
         /// </summary>
         /// <returns>list of all bricks</returns>
-        List<Brick> GetBrick();
+        List<IBrick> GetBrick();
         /// <summary>
         /// method to set ball position.
         /// </summary>
