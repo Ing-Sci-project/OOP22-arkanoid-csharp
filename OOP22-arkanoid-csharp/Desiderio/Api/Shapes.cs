@@ -27,15 +27,10 @@ namespace Shapes
         /// <summary>
         /// Assigns the physics of the object.
         /// </summary>
-        /// <param name="phsycs">The physics to assign.</param>
-        
+      
         IPhysics Physics { get; set;}
 
-        /// <summary>
-        /// Gets or sets the dimension of the object.
-        /// </summary>
-        IDimension Dimension { get; set; }
-
+    
         /// <summary>
         /// Gets and set the speed of the object.
         /// 
