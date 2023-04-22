@@ -57,7 +57,7 @@ namespace MovingShapesImpl
     }
 
     /// <summary>
-    /// Pad is a moving object.
+    /// Ball is a moving object.
     /// </summary>
     public class Ball : AbstractMovingObject
     {
