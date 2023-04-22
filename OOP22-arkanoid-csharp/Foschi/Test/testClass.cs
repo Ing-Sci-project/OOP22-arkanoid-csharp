@@ -5,6 +5,9 @@ using Castiglioni.Api;
 
 namespace Foschi.Test{
 
+    /// <summary>
+    /// Test class.
+    /// </summary>
     public class testClass {
 
         private readonly double X = 12.0;
@@ -13,6 +16,9 @@ namespace Foschi.Test{
         private readonly double INC_Y = 0.43;
         private  Random random = new Random();
 
+        /// <summary>
+        /// Test of class Speed.
+        /// </summary>
         [Fact]
         public void testSpeed(){
             ISpeed speed = new Speed(X,Y);
@@ -25,6 +31,9 @@ namespace Foschi.Test{
             Assert.Equal(speed,speed2);
         }
 
+        /// <summary>
+        /// Test of class Dimension.
+        /// </summary>
         [Fact]
         public void testDimension(){
             Dimension dim = new Dimension(X,Y);
@@ -34,6 +43,9 @@ namespace Foschi.Test{
             Assert.Equal(dim.Width,Y+INC_Y);
         }
 
+        /// <summary>
+        ///Test of class Obstacle.
+        /// </summary>
         [Fact]
         public void testObstacle(){
             IBrick b = new Obstacle(BrickType.OBSTACLE, new Dimension(X,Y), new Tuple<double, double>(X,Y));
@@ -44,6 +56,9 @@ namespace Foschi.Test{
             Assert.True(!b.IsDestroyed());
         }
 
+        /// <summary>
+        /// Test of class LeaderBoard.
+        /// </summary>
         [Fact]
         public void testLeaderBoard(){
             ILeaderBoard l = new LeaderBoard();
@@ -73,6 +88,10 @@ namespace Foschi.Test{
             Assert.True(l.GetPoints(name,password) == 160);
         }
 
+        /// <summary>
+        /// method to get a random string.
+        /// </summary>
+        /// <returns> a random string</returns>
         private string RandomString()
         {
             const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
