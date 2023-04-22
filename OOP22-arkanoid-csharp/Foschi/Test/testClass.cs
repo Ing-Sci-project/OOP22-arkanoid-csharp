@@ -1,6 +1,7 @@
 using Xunit;
 using Foschi.Api;
 using Foschi.Game;
+using Castiglioni.Api;
 
 namespace Foschi.Test{
 
@@ -31,6 +32,15 @@ namespace Foschi.Test{
             Assert.Equal(dim.Width,Y);
             dim.IncreaseWidth(INC_Y);
             Assert.Equal(dim.Width,Y+INC_Y);
+        }
+
+        [Fact]
+        public void testObstacle(){
+            IBrick b = new Obstacle(BrickType.OBSTACLE, new Dimension(X,Y), new Tuple<double, double>(X,Y));
+            for (int i=0; i<100000; i++) {
+                b.Hit();
+            }
+            Assert.True(!b.IsDestroyed());
         }
 
         [Fact]
