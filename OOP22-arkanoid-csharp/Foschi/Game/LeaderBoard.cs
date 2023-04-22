@@ -27,14 +27,26 @@ namespace Foschi.Game
 
         public int? GetPoints(string name, string password)
         {
-            User? usr = PlayersFromFile().Find(x=>x._name.Equals(name) && x._password.Equals(password));
+            User? usr = CheckUser(name,password,PlayersFromFile());
             return usr == null ? null : usr.GetSumPoints();
         }
 
         public void UpdatePoints(string name, string password, int points, int levelId)
         {
-            throw new NotImplementedException();
+            List<User> list = PlayersFromFile();
+            User? check = CheckUser(name,password,list);
+            if(check != null) {
+                check.Update(points,levelId);
+            } else {
+                User usr = new User(name,password);
+                usr.Update(points,levelId);
+                list.Add(usr);
+            }
+            list.Sort((x,y)=>y.GetSumPoints().CompareTo(x.GetSumPoints()));
+            Writeonfile(list);
         }
+
+        private User? CheckUser(string usr, string password, List<User> list) => list.Find(x=>x._name.Equals(usr) && x._password.Equals(password));
 
         private void Writeonfile(List<User> list) 
         {
