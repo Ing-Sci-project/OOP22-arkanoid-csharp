@@ -14,6 +14,7 @@ namespace Foschi.Game
             if (!File.Exists(_path) || f.Length == 0) {
                 FileStream str = File.Create(_path);
                 str.Close();
+                WriteOnFile(LoadFromResources());
             }
         }
         public List<Tuple<string, int>> GetBestFive()
@@ -43,12 +44,12 @@ namespace Foschi.Game
                 list.Add(usr);
             }
             list.Sort((x,y)=>y.GetSumPoints().CompareTo(x.GetSumPoints()));
-            Writeonfile(list);
+            WriteOnFile(list);
         }
 
         private User? CheckUser(string usr, string password, List<User> list) => list.Find(x=>x._name.Equals(usr) && x._password.Equals(password));
 
-        private void Writeonfile(List<User> list) 
+        private void WriteOnFile(List<User> list) 
         {
             File.WriteAllText(_path, JsonConvert.SerializeObject(list));
         }
