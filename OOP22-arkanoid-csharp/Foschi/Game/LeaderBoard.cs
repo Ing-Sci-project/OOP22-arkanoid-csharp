@@ -8,8 +8,8 @@ namespace Foschi.Game
     /// </summary>
     public class LeaderBoard : ILeaderBoard
     {
-        private string _path;
-        private readonly int MAX=5;
+        private readonly string _path;
+        private const int Max=5;
 
         /// <summary>
         /// costructor of this class.
@@ -28,8 +28,8 @@ namespace Foschi.Game
         public List<Tuple<string, int>> GetBestFive()
         {
             List<User> list = PlayersFromFile();
-            if(list.Count() > MAX) {
-                list = list.GetRange(0,MAX);
+            if(list.Count() > Max) {
+                list = list.GetRange(0,Max);
             }
             return list.Select(x=>new Tuple<string,int>(x._name,x.GetSumPoints())).ToList();
         }
@@ -76,20 +76,19 @@ namespace Foschi.Game
         /// method to get list of players from file.
         /// </summary>
         /// <returns>list of players</returns>
-        private List<User> PlayersFromFile() {
-            List<User>? list = JsonConvert.DeserializeObject<List<User>>(File.ReadAllText(_path));
-            return list==null? new List<User>() : list;
-        }
+        private List<User> PlayersFromFile() => checkIfNull(JsonConvert.DeserializeObject<List<User>>(File.ReadAllText(_path)));
 
         /// <summary>
         /// method to get list of players from resources file.
         /// </summary>
         /// <returns>list of players</returns>
-        private List<User> LoadFromResources() 
-        {
-            List<User>? list = JsonConvert.DeserializeObject<List<User>>(File.ReadAllText("Resources/File.txt"));
-            return list==null? new List<User>() : list;
-        }
+        private List<User> LoadFromResources() => checkIfNull(JsonConvert.DeserializeObject<List<User>>(File.ReadAllText("Resources/File.txt")));
+
+        /// <summary>
+        /// method to check if a list is null or not.
+        /// </summary>
+        /// <returns>the list if it is not null or an empty list</returns>
+        private List<User> checkIfNull(List<User>? list) => list==null? new List<User>() : list;
 
         /// <summary>
         /// Class that manages informations of each palyer.
@@ -124,10 +123,7 @@ namespace Foschi.Game
             /// </summary>
             /// <param name="points"> points totalize by the player</param>
             /// <param name="levelId"> level done</param>
-            public void Update(int points, int levelId)
-            {
-                _points[levelId.ToString()]=points;
-            }
+            public void Update(int points, int levelId) => _points[levelId.ToString()]=points;
 
             /// <inheritdoc />
             public override string ToString() => _name+" "+GetSumPoints();
