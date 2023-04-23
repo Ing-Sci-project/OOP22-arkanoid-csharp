@@ -19,9 +19,9 @@ namespace Castiglioni.Test
             Assert.Equal(0, brickNormal.GetRes().Value);
             IBrick brickHard = new NormalBrick(BrickType.NORMAL, new Foschi.Game.Dimension(X, Y), new Tuple<double, double>(X, Y), ResHard);
             Assert.Equal(BrickType.NORMAL, brickHard.Type);
-            Assert.Equal(ResNormal, brickHard.GetRes().Value);
+            Assert.Equal(ResHard, brickHard.GetRes().Value);
             brickHard.Hit();
-            Assert.Equal(1, brickHard.GetRes().Value);
+            Assert.Equal(ResNormal, brickHard.GetRes().Value);
             brickHard.Hit();
             Assert.Equal(0, brickHard.GetRes().Value);
         }

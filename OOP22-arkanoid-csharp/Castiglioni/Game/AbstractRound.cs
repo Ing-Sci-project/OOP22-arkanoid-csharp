@@ -44,7 +44,7 @@ namespace Castiglioni.Game
         {
             _balls.Clear();
             IMovingObject ball = new Ball(SizeCalculation.GetBallDim());
-            ball.Physics.GetDir().ResetDirection();
+            //ball.Physics.GetDir().ResetDirection();
             _balls.Add(ball);
             _surprise.Clear();
         }
