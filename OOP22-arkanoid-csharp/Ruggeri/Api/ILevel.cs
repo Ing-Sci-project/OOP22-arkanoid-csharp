@@ -42,9 +42,8 @@ namespace Ruggeri
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="r"> represents the playing round</param>
         /// <returns> current round.</returns>
-        IRound Round { get; set; }
+        IRound CurrentRound { get; set; }
 
         /// <summary>
         /// number of rounds passed.
@@ -82,7 +81,7 @@ namespace Ruggeri
         /// <summary>
         /// the index of the last surprise brick destroyed.
         /// </summary>
-        int IndexLastSurprise { get; }
+        int IndexLastSurprise { get; set;}
 
         /// <summary>
         /// set the name of the called surprise method.
