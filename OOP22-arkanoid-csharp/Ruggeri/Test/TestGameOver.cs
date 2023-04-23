@@ -5,7 +5,7 @@ using Ruggeri.Game;
 namespace Ruggeri.Test
 {
     /// <summary>
-    /// gameOver test class.
+    /// GameOver test class.
     /// </summary>
     public class TestGameOver
     {
