@@ -44,7 +44,7 @@ namespace Castiglioni.Game
             int idx = _random.Next(GetBrick().Count);
             if (GetBrick()[idx].Type == BrickType.NORMAL && GetBrick()[idx].GetRes().Equals(1))
             {
-                GetBrick()[idx].IncreaseRes(GetBrick()[idx].GetRes().Value);
+                GetBrick()[idx].IncreaseRes(1);
                 return true;
             }
             else

@@ -14,16 +14,16 @@ namespace Castiglioni.Test
         {
             IBrick brickNormal = new NormalBrick(BrickType.NORMAL, new Foschi.Game.Dimension(X, Y), new Tuple<double, double>(X, Y), ResNormal);
             Assert.Equal(BrickType.NORMAL, brickNormal.Type);
-            Assert.Equal(ResNormal, brickNormal.GetRes().Value);
+            Assert.Equal(ResNormal, brickNormal.GetRes());
             brickNormal.Hit();
-            Assert.Equal(0, brickNormal.GetRes().Value);
+            Assert.Equal(0, brickNormal.GetRes());
             IBrick brickHard = new NormalBrick(BrickType.NORMAL, new Foschi.Game.Dimension(X, Y), new Tuple<double, double>(X, Y), ResHard);
             Assert.Equal(BrickType.NORMAL, brickHard.Type);
-            Assert.Equal(ResHard, brickHard.GetRes().Value);
+            Assert.Equal(ResHard, brickHard.GetRes());
             brickHard.Hit();
-            Assert.Equal(ResNormal, brickHard.GetRes().Value);
+            Assert.Equal(ResNormal, brickHard.GetRes());
             brickHard.Hit();
-            Assert.Equal(0, brickHard.GetRes().Value);
+            Assert.Equal(0, brickHard.GetRes());
         }
 
     }
