@@ -9,17 +9,17 @@ namespace Ruggeri.Test
     /// </summary>
     public class TestFirstLevel
     {
-        private const int NORMAL_FIRST = 19;
-        private const int SURPRISE_FIRST = 2;
+        private const int NormalFirst = 19;
+        private const int SurpriseFirst = 2;
 
         [Fact]
         public void Test()
         {
             ILevel level = new FirstLevel();
             level.FirstRound();
-            Assert.Equal(NORMAL_FIRST + SURPRISE_FIRST, level.CurrentRound.GetBrick().Count);
-            Assert.Equal(NORMAL_FIRST, level.CurrentRound.GetBrick().Count - SURPRISE_FIRST);
-            Assert.Equal(SURPRISE_FIRST, level.CurrentRound.GetBrick().Count - NORMAL_FIRST);
+            Assert.Equal(NormalFirst + SurpriseFirst, level.CurrentRound.GetBrick().Count);
+            Assert.Equal(NormalFirst, level.CurrentRound.GetBrick().Count - SurpriseFirst);
+            Assert.Equal(SurpriseFirst, level.CurrentRound.GetBrick().Count - NormalFirst);
         }
     }
 }

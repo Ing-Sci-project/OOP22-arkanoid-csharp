@@ -9,8 +9,8 @@ namespace Ruggeri.Game
     /// </summary>
     public abstract class AbstractLevel : ILevel
     {
-        private const int INITIAL_LIVES = 3;
-        private int _lives = INITIAL_LIVES;
+        private const int InitialLives = 3;
+        private int _lives = InitialLives;
         private IRound? _currentRound;
         //private Score score;
         private int _numRoundPassed = 0;
