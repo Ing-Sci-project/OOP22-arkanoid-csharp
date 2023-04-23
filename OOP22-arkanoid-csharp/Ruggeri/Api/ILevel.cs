@@ -43,7 +43,7 @@ namespace Ruggeri.Api
         /// 
         /// </summary>
         /// <returns> current round.</returns>
-        IRound CurrentRound { get; set; }
+        IRound? CurrentRound { get; set; }
 
         /// <summary>
         /// number of rounds passed.
@@ -76,7 +76,7 @@ namespace Ruggeri.Api
         /// <param name="suBrick">the input received</param>
         /// <param name="i">the input received</param>
         /// <returns> the last surprise brick destroyed.</returns>
-        IBrick LastSurpriseBrick{ get; set; }
+        IBrick? LastSurpriseBrick{ get; set; }
 
         /// <summary>
         /// the index of the last surprise brick destroyed.

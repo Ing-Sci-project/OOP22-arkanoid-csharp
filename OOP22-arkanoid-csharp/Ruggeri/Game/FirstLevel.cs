@@ -7,16 +7,16 @@ namespace Ruggeri.Game
     /// </summary>
     public class FirstLevel : AbstractLevel
     {
-        private const int NORMAL_FIRST = 19;
-        private const int NORMAL_SECOND = 27;
-        private const int NORMAL_THIRD = 35;
-        private const int SURPRISE_FIRST = 2;
-        private const int SURPRISE_SECOND = 3;
-        private const int SURPRISE_THIRD = 4;
-        private const int BRICK_COLUMNS = 3;
-        private const int BRICK_ROWS_FIRST = 8;
-        private const int BRICK_ROWS_SECOND = 11;
-        private const int BRICK_ROWS_THIRD = 13;
+        private const int NormalFirst = 19;
+        private const int NormalSecond = 27;
+        private const int NormalThird = 35;
+        private const int SurpriseFirst = 2;
+        private const int SurpriseSecond = 3;
+        private const int SurpriseThird = 4;
+        private const int BrickColumns = 3;
+        private const int BrickRowsFirst = 8;
+        private const int BrickRowsSecond = 11;
+        private const int BrickRowsThird = 13;
         private const int ID = 1;
         private SizeCalculation? sizeCalc;
 
@@ -27,17 +27,17 @@ namespace Ruggeri.Game
 
         public override void FirstRound()
         {
-            this.Set(NORMAL_FIRST, SURPRISE_FIRST);
+            this.Set(NormalFirst, SurpriseFirst);
         }
 
         public override void SecondRound()
         {
-            this.Set(NORMAL_SECOND, SURPRISE_SECOND);
+            this.Set(NormalSecond, SurpriseSecond);
         }
 
         public override void ThirdRound()
         {
-            this.Set(NORMAL_THIRD, SURPRISE_THIRD);
+            this.Set(NormalThird, SurpriseThird);
         }
 
         /// <summary>
@@ -48,15 +48,15 @@ namespace Ruggeri.Game
         {
             if (this.NumRoundPassed == 0)
             {
-                return BRICK_ROWS_FIRST;
+                return BrickRowsFirst;
             }
             else if (this.NumRoundPassed == 1)
             {
-                return BRICK_ROWS_SECOND;
+                return BrickRowsSecond;
             }
             else
             {
-                return BRICK_ROWS_THIRD;
+                return BrickRowsThird;
             }
         }
 
@@ -70,7 +70,7 @@ namespace Ruggeri.Game
         private void Set(int normal, int surprise)
         {
             int rows = this.getCol();
-            this.sizeCalc = new SizeCalculation(BRICK_COLUMNS, rows);
+            this.sizeCalc = new SizeCalculation(BrickColumns, rows);
             base.CurrentRound = new RoundEasy(normal, surprise, sizeCalc);
             base.CurrentRound.SetPosBrick();
         }
