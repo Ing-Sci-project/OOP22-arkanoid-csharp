@@ -1,5 +1,5 @@
 using Castiglioni.Game;
-namespace Ruggeri
+namespace Ruggeri.Game
 {
 
     /// <summary>

@@ -1,6 +1,7 @@
 using Castiglioni.Api;
+using Ruggeri.Api;
 
-namespace Ruggeri
+namespace Ruggeri.Game
 {
     /// <summary>
     /// This abstract class declares variables and defines methods in common with
