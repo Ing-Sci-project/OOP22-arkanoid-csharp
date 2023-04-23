@@ -1,7 +1,6 @@
 *.class
 
-bin/
-!*/File.txt
+bin/*
 build/
 obj/
 .vscode/
