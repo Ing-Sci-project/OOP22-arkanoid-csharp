@@ -4,6 +4,9 @@ using Castiglioni.Api;
 
 namespace Castiglioni.Test
 {
+    /// <summary>
+    /// RoundMedium and Round test class.
+    /// </summary>
     public class TestRoundMedium
     {
 
@@ -14,6 +17,9 @@ namespace Castiglioni.Test
         private const int Surprise = 3;
         private const int SizeList = Gray + Surprise + Normal;
         private const int BrickCol = 4;
+        /// <summary>
+        /// tests the size of the brick list, the Remove and the AddSurprise method.
+        /// </summary>
         [Fact]
         public void TestRoundM()
         {
