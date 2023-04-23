@@ -13,12 +13,12 @@ namespace Shapes
         /// <summary>
         /// Gets or sets the bounding box area of the game object.
         /// </summary>
-        IBoundingBox BoundingBox { get; set; }
+        //IBoundingBox BoundingBox { get; set; }
 
         /// <summary>
         /// Gets or sets the dimension of the game object.
         /// </summary>
-        IDimension Dimension { get; set; }
+        //IDimension Dimension { get; set; }
     }
     /// <summary>
     /// Interface that models the characteristics of a mobile object.
@@ -27,7 +27,7 @@ namespace Shapes
         /// <summary>
         /// Assigns the physics of the object.
         /// </summary>
-        IPhysics Physics { get; set;}
+        //IPhysics Physics { get; set;}
         /// <summary>
         /// Gets and set the speed of the obje
         /// </summary>
