@@ -23,7 +23,7 @@ namespace Ruggeri
         /// Check if the player missed the ball.
         /// </summary>
         /// <returns> boolean value that indicates if the pad has missed the ball</returns>
-        public bool hasMissedBall()
+        public bool HasMissedBall()
         {
             foreach (var ball in this._round.GetBalls())
             {
@@ -39,16 +39,16 @@ namespace Ruggeri
         /// Check if the player has finished the round.
         /// </summary>
         /// <returns> boolean value that indicates if the round is finished.</returns>
-        public bool isRoundFinished()
+        public bool IsRoundFinished()
         {
-            return this._round.GetBrick().Count < 1 || remainsOnlyObstacles();
+            return this._round.GetBrick().Count < 1 || RemainsOnlyObstacles();
         }
 
         /// <summary>
         /// Check if remains only obstacles.
         /// </summary>
         /// <returns> boolean value that indicates if remains only obstacles in round.</returns>
-        private bool remainsOnlyObstacles()
+        private bool RemainsOnlyObstacles()
         {
             foreach (IBrick element in this._round.GetBrick())
             {
