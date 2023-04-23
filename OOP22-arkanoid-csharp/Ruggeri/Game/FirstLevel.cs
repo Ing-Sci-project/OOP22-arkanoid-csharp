@@ -72,7 +72,6 @@ namespace Ruggeri.Game
             int rows = this.getCol();
             this.sizeCalc = new SizeCalculation(BrickColumns, rows);
             base.CurrentRound = new RoundEasy(normal, surprise, sizeCalc);
-            base.CurrentRound.SetPosBrick();
         }
     }
 }
