@@ -10,7 +10,7 @@ namespace MovingShapesImpl
     {
         private Tuple<double, double> _pos;
         //private BoundingBox _box;
-        private Speed _speed;
+        private ISpeed _speed;
         //private Dimension _d;
         //private Physics _pysic;
 
@@ -39,7 +39,7 @@ namespace MovingShapesImpl
         //     set { _box = value; }
         // }
 
-        public Speed Speed
+        public ISpeed Speed
         {
             get { return _speed; }
             set { _speed = value; }
@@ -58,7 +58,7 @@ namespace MovingShapesImpl
         //     set { return _pysic = value; }
         // }
 
-        ISpeed IMovingObject.Speed { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        
     }
 
     /// <summary>
