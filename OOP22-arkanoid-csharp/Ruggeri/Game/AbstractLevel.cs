@@ -11,11 +11,11 @@ namespace Ruggeri.Game
     {
         private const int INITIAL_LIVES = 3;
         private int _lives = INITIAL_LIVES;
-        private IRound _currentRound;
+        private IRound? _currentRound;
         //private Score score;
         private int _numRoundPassed = 0;
         private int _levelId;
-        private IBrick _lastSurpriseBrick;
+        private IBrick? _lastSurpriseBrick;
         private int _indexLastSurprise;
         private string _bonus;
 
@@ -30,7 +30,7 @@ namespace Ruggeri.Game
             //this.score = new ScoreImpl();
         }
         /// <inheritdoc />
-        public IRound CurrentRound { get => this._currentRound; set => this._currentRound = value; }
+        public IRound? CurrentRound { get => this._currentRound; set => this._currentRound = value; }
         /// <inheritdoc />
         public int NumRoundPassed => this._numRoundPassed;
         /// <inheritdoc />
@@ -38,7 +38,7 @@ namespace Ruggeri.Game
         /// <inheritdoc />
         public int Id => this._levelId;
         /// <inheritdoc />
-        public IBrick LastSurpriseBrick { get => this._lastSurpriseBrick; set => this._lastSurpriseBrick = value; }
+        public IBrick? LastSurpriseBrick { get => this._lastSurpriseBrick; set => this._lastSurpriseBrick = value; }
         /// <inheritdoc />
         public int IndexLastSurprise { get => this._indexLastSurprise; set => this._indexLastSurprise = value; }
         /// <inheritdoc />
