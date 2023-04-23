@@ -1,8 +1,7 @@
 *.class
 
 bin/
-!/bin/Resources
-!/bin/Debug/net7.0/Resources
+!*/File.txt
 build/
 obj/
 .vscode/
