@@ -1,6 +1,6 @@
 using Castiglioni.Api;
 
-namespace Ruggeri
+namespace Ruggeri.Api
 {
     /// <summary>
     /// interface Level that contains method that can be useful when a new Level
