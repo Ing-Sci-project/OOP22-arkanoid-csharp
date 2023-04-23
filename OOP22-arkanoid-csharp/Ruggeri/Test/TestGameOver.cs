@@ -17,11 +17,9 @@ namespace Ruggeri.Test
             level.FirstRound();
             GameOver gameOver = new GameOver(level.CurrentRound);
 
-            while (!level.CurrentRound.GetBrick().Any())
-            {
-                level.CurrentRound.GetBrick().RemoveAt(0);
-            }
-            Assert.Equal(0, level.CurrentRound.GetBrick().Count);
+            level.CurrentRound.GetBrick().Clear();
+
+            Assert.Empty(level.CurrentRound.GetBrick());
             isFinished = gameOver.IsRoundFinished();
             Assert.True(isFinished);
         }
