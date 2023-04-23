@@ -30,7 +30,7 @@ namespace Castiglioni.Test
                     indexS = round.GetBrick().IndexOf(b);
                     sur++;
                 }
-                else if (b.GetRes().Value.Equals(2))
+                else if (b.GetRes().Equals(2))
                 {
                     indexG = round.GetBrick().IndexOf(b);
                     gray++;
