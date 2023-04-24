@@ -1,12 +1,8 @@
 // importare le librerie necessarie
 using Xunit;
-using Moq;
 using Castiglioni.Game;
 using MovingShapesImpl;
 using OOP22_arkanoid_csharp.Desiderio.Api;
-
-// importare le librerie necessarie
-using Xunit;
 using Foschi.Game;
 
 public class MovingObjectTest
