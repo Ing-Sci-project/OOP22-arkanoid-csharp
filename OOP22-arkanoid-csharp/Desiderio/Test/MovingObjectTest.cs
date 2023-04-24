@@ -24,10 +24,11 @@ public class MovingObjectTest
     public void Pad_PositionIsSetCorrectly()
     {
         // creare una pedana di prova
-        var pad = new Pad(new Dimension(50, 10));
+        var d = new Dimension(50, 10);
+        var pad = new Pad(d);
 
         // verificare che la posizione sia stata impostata correttamente
-        var expectedX = SizeCalculation.GetWorldSize().Item2 / 2 - 25;
+        var expectedX = SizeCalculation.GetWorldSize().Item2 / 2 - d.Width / 2;
         var expectedY = SizeCalculation.GetWorldSize().Item1 - 100;
         Assert.Equal(expectedX, pad.Pos.Item1);
         Assert.Equal(expectedY, pad.Pos.Item2);
