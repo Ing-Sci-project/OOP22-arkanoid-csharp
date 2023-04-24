@@ -13,7 +13,7 @@ namespace  Balzoni.Game
             _temp = _d.getDirection();
         }
         /// <inheritdoc />
-        IDirection IPhysics.getDir => _d;
+        IDirection IPhysics.Dir => _d;
 
         /// <inheritdoc />
         public void changeDirection(Side side)
