@@ -1,0 +1,1 @@
+[{"_points":{"2":100,"1":60,"3":8},"_name":"Margherita","_password":"ciao"},{"_points":{"1":100,"2":24},"_name":"Virginia","_password":"ciao"},{"_points":{"2":56},"_name":"Chiara","_password":"ciao"},{"_points":{"2":52},"_name":"Edoardo","_password":"ciao"},{"_points":{"1":43},"_name":"Simone","_password":"ciao"}]
