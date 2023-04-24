@@ -6,65 +6,81 @@ namespace  Balzoni.Game
     {
         private IDirection _d;
         private bool _centre = false;
-        private Tuple<double, double> _temp;
+        private Tuple<int, int> _temp;
 
         public BallPhysics()
         {
-            // this.temp = d.getDirection();
+            _temp = _d.getDirection();
         }
-
-        IDirection IPhysics.getDir => throw new NotImplementedException();
+        /// <inheritdoc />
+        IDirection IPhysics.getDir => _d;
 
         /// <inheritdoc />
         public void changeDirection(Side side)
-        {
-           /* this.d.setDirection(temp);
-             if (centre) 
-             {
-                 d.setDirectionUp();
-                centre = false;
-             }
-             if (side.equals(Side.CORNER)) {
-            if (this.d.isDirectionLeft()) {
-             this.d.setDirectionRight();
-            } else {
-             this.d.setDirectionLeft();
+        { _d.setDirection(_temp);
+          if(_centre)
+          {
+            _d.setDirectionUp();
+            _centre=false;
+          }
+          if(side.Equals(Side.CORNER))
+          {
+            if(_d.isDirectionLeft())
+            {
+              _d.setDirectionRight();
+            }
+            else
+            {
+              _d.setDirectionLeft();
+            }
+            if (_d.isDirectionUp()) 
+            {
+                _d.setDirectionDown();
             } 
-
-            if (this.d.isDirectionUp()) {
-             this.d.setDirectionDown();
-             } else {
-             this.d.setDirectionUp();
+            else 
+            {
+               _d.setDirectionUp();
             }
-             temp = d.getDirection();
-            } else if (side.equals(Side.LEFT_RIGHT)) {
-            if (this.d.isDirectionLeft()) {
-             this.d.setDirectionRight();
-             } else {
-             this.d.setDirectionLeft();
-            }
-            temp = d.getDirection();
+            _temp =_d.getDirection();
+          }
+          else
+          {
+            if(side.Equals(Side.LEFT_RIGHT))
+            {
+               if (_d.isDirectionLeft()) 
+               {
+                  _d.setDirectionRight();
+               } 
+               else 
+               {
+                  _d.setDirectionLeft();
+                }
 
-             } else if (side.equals(Side.UP_DOWN)) {
-             if (this.d.isDirectionUp()) {
-             this.d.setDirectionDown();
-             } else {
-               this.d.setDirectionUp();
-             }
-      temp = d.getDirection();
-    } else {
-      centre = true;
-      d.setCentre();
-    }*/
+              _temp = _d.getDirection();
+            }
+            else
+           {
+             if (side.Equals(Side.UP_DOWN)) 
+              {
+                if (_d.isDirectionUp()) 
+                {
+                  _d.setDirectionDown();
+                }
+                else 
+                {
+                  _d.setDirectionUp();
+                }
+                _temp = _d.getDirection();
+              }
+              else 
+              {
+                _centre = true;
+               _d.setCentre();
+               }
+          }
 
         }
-         /// <inheritdoc />
-         public IDirection getDir() 
-        {
-           IDirection dir = _d;
-             /*dir.setDirection(this.d.getDirection());*/
-            return dir;
-         }
     
    }
+ }
 }
