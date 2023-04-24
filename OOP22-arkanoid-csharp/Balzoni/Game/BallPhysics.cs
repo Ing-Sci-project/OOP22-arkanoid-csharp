@@ -4,7 +4,7 @@ namespace  Balzoni.Game
 {
     public class BallPhysics : IPhysics
     {
-        private IDirection _d;
+        private Direction _d = new Direction();
         private bool _centre = false;
         private Tuple<int, int> _temp;
 

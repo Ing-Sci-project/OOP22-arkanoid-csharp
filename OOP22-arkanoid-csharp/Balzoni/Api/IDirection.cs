@@ -51,7 +51,7 @@ namespace Balzoni.Api
         /// <summary>
         /// Method for changing the direction.
         /// </summary>
-        /// <param name="newD">new direction.</param>
+        /// <param name="new_D">new direction.</param>
         void setDirection(Tuple<Int32, Int32> new_D);
     }
 
