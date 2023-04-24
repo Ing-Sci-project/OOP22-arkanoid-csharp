@@ -21,10 +21,10 @@ namespace MovingShapesImpl
         /// </summary>
         /// <param name="pos">The position of the object.</param>
         /// <param name="d">The dimension of the object.</param>
-        public AbstractMovingObject( Tuple<double, double> pos,  Dimension d)
+        public AbstractMovingObject( Tuple<double, double> pos,  IDimension d)
         {
             _pos = Tuple.Create(pos.Item1, pos.Item2);
-            //_d = new DimensionImpl(d.Height, d.Width);
+            _d = new Dimension(d.Height, d.Width);
             _speed = new Speed(3, 3);
         }
 
@@ -70,7 +70,7 @@ namespace MovingShapesImpl
         /// Set the dimension of the ball.
         /// </summary>
         /// <param name="d">The dimension of the ball.</param>
-        public Ball(Dimension d) : base(
+        public Ball(IDimension d) : base(
             new Tuple<double, double>(
                 SizeCalculation.GetWorldSize().Item2 / 2 - d.Width / 2,
                 (SizeCalculation.GetWorldSize().Item1 - 100) - (2 * d.Height) - TOLLERANCE
@@ -95,7 +95,7 @@ namespace MovingShapesImpl
         /// Set the dimension of the pad.
         /// </summary>
         /// <param name="d">The dimension of the pad.</param>
-        public Pad(Dimension d) : base(
+        public Pad(IDimension d) : base(
             new Tuple<double, double>(
                 SizeCalculation.GetWorldSize().Item2 / 2 - d.Width / 2,
                 SizeCalculation.GetWorldSize().Item1 - 100
