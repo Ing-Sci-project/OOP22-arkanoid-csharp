@@ -13,6 +13,6 @@ namespace Balzoni.Api
         /// Method for changing the direction of the ball.
         /// </summary>
         ///<returns>Ball direction</returns>
-        IDirection getDir{ get; }
+        IDirection Dir{ get; }
     }
 }
