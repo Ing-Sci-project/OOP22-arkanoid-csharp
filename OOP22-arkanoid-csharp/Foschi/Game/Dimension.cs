@@ -3,7 +3,8 @@ namespace Foschi.Game {
     /// <summary>
     /// Class that manages objects' dimension.
     /// </summary>
-    public class Dimension {
+    public class Dimension : IDimension
+    {
 
         private double _height;
         private double _width;
@@ -13,24 +14,24 @@ namespace Foschi.Game {
         /// </summary>
         /// <param name="height"></param>
         /// <param name="width"></param>
-        public Dimension(double height, double width) 
+        public Dimension(double height, double width)
         {
-            _height=height;
-            _width=width;
+            _height = height;
+            _width = width;
         }
 
         /// <inheritdoc />
         public double Height
         {
-            get {return _height;}
-            set {_height=value;}
+            get { return _height; }
+            set { _height = value; }
         }
 
         /// <inheritdoc />
         public double Width
         {
-            get {return _width;}
-            set {_width=value;}
+            get { return _width; }
+            set { _width = value; }
         }
 
         /// <inheritdoc />

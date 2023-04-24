@@ -2,6 +2,8 @@ using Shapes;
 using Foschi.Game;
 using Foschi.Api;
 using Castiglioni.Game;
+using Balzoni.Api;
+using OOP22_arkanoid_csharp.Desiderio.Api;
 
 namespace MovingShapesImpl
 {
@@ -11,8 +13,8 @@ namespace MovingShapesImpl
         private Tuple<double, double> _pos;
         //private BoundingBox _box;
         private ISpeed _speed;
-        //private Dimension _d;
-        //private Physics _pysic;
+        private IDimension _d;
+        private IPhysics _pysic;
 
         /// <summary>
         /// Constructors accept position and dimension of moving obj.
@@ -33,12 +35,6 @@ namespace MovingShapesImpl
             set { _pos = value; }
         }
 
-        // public BoundingBox BoundingBox
-        // {
-        //     get { return _box; }
-        //     set { _box = value; }
-        // }
-
         public ISpeed Speed
         {
             get { return _speed; }
@@ -46,19 +42,20 @@ namespace MovingShapesImpl
         }
 
 
-        // public Dimension Dimension
-        // {
-        //     get { return _d; }
-        //     set { _d = value; }
-        // }
 
-        // public Physics Physics
-        // {
-        //     get { return _pysic; }
-        //     set { return _pysic = value; }
-        // }
+        public IDimension Dimension
+        {
+            get { return _d; }
+            set { _d = value; }
+        }
 
-        
+        public IPhysics Physics
+        {
+            get { return _pysic; }
+            set {  _pysic = value; }
+        }
+
+
     }
 
     /// <summary>
