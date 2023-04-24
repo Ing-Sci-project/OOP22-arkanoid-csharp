@@ -1,5 +1,6 @@
 using Castiglioni.Api;
 using Foschi.Game;
+using OOP22_arkanoid_csharp.Desiderio.Api;
 using Shapes;
 
 namespace Castiglioni.Game
@@ -11,7 +12,7 @@ namespace Castiglioni.Game
     {
         private BrickType _type;
         //private BoundingBox _box;
-        private Dimension _d;
+        private IDimension _d;
         private Tuple<double, double> _pos;
         /// <summary>
         /// Costructor of this class.
@@ -19,7 +20,7 @@ namespace Castiglioni.Game
         /// <param name="type">type of brick</param>
         /// <param name="d">dimension of brick</param>
         /// <param name="pos">position of brick</param>
-        public AbstractBrick(BrickType type, Dimension d, Tuple<double, double> pos)
+        public AbstractBrick(BrickType type, IDimension d, Tuple<double, double> pos)
         {
             _type = type;
             _pos = new Tuple<double, double>(pos.Item1, pos.Item2);
@@ -50,7 +51,7 @@ namespace Castiglioni.Game
             set =>  _box = value;
         }*/
         /// <inheritdoc />
-        public Dimension Dimension
+        public IDimension Dimension
         {
             set => _d = new Dimension(value.Height, value.Width);
             get => _d;
