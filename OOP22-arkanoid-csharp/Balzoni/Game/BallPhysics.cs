@@ -4,7 +4,7 @@ namespace  Balzoni.Game
 {
     public class BallPhysics : IPhysics
     {
-        //private Direction _d = new DirectionImpl();
+        private IDirection _d;
         private bool _centre = false;
         private Tuple<double, double> _temp;
 
@@ -13,8 +13,10 @@ namespace  Balzoni.Game
             // this.temp = d.getDirection();
         }
 
+        IDirection IPhysics.getDir => throw new NotImplementedException();
+
         /// <inheritdoc />
-         public void changeDirection(final Side side)
+        public void changeDirection(Side side)
         {
            /* this.d.setDirection(temp);
              if (centre) 
@@ -57,11 +59,12 @@ namespace  Balzoni.Game
 
         }
          /// <inheritdoc />
-         public Direction getDir() {
-    /*Direction dir = new DirectionImpl();
-    dir.setDirection(this.d.getDirection());
-    return dir;*/
-  }
+         public IDirection getDir() 
+        {
+           IDirection dir = _d;
+             /*dir.setDirection(this.d.getDirection());*/
+            return dir;
+         }
     
    }
 }
