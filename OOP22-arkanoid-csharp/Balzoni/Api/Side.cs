@@ -2,7 +2,7 @@ namespace Balzoni.Api
 {   /// <summary>
     ///  Side where the box collide.
     /// </summary>
-    public enum BrickType
+    public enum Side
     {
         /// <summary>
         /// Side top and bottom.
