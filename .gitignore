@@ -8,3 +8,4 @@
 !**/bin/Debug/net7.0/Resources
 build/
 obj/
+.vs
