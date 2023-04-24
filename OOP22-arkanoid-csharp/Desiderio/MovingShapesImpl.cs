@@ -4,6 +4,7 @@ using Foschi.Api;
 using Castiglioni.Game;
 using Balzoni.Api;
 using OOP22_arkanoid_csharp.Desiderio.Api;
+using Balzoni.Game;
 
 namespace MovingShapesImpl
 {
@@ -11,7 +12,7 @@ namespace MovingShapesImpl
     public abstract class AbstractMovingObject : IMovingObject
     {
         private Tuple<double, double> _pos;
-        //private BoundingBox _box;
+        private IBoundingBox _box;
         private ISpeed _speed;
         private IDimension _d;
         private IPhysics _pysic;
@@ -55,7 +56,11 @@ namespace MovingShapesImpl
             set {  _pysic = value; }
         }
 
-
+        public IBoundingBox BoundingBox
+        {
+            get { return _box; }
+            set { _box = value; }
+        }
     }
 
     /// <summary>
@@ -79,8 +84,8 @@ namespace MovingShapesImpl
         )
         {
             base.Speed = new Speed(4, 3);
-            // base.Physics = new BallPhysicsImpl();
-            // base.BoundingBox = new CircleBoundingBox(this);
+            base.Physics = new BallPhysics();
+            base.BoundingBox = new CircleBoundingBox(this);
         }
 
     }
@@ -103,7 +108,7 @@ namespace MovingShapesImpl
             d
         )
         {
-            // base.BoundingBox = new RectBoundingBox(this);
+            base.BoundingBox = new RectBoundingBox(this);
             base.Speed = new Speed(10, 0);
         }
 
